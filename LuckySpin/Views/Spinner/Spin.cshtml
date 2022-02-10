@@ -1,0 +1,15 @@
+﻿@model LuckySpin.ViewModels.SpinViewModel
+@inject LuckySpin.Services.TextTransformService Transform
+@{
+    Layout = "_Layout";
+    var culture = new System.Globalization.CultureInfo("en-US");
+    var display = Model.Winner ? "block" : "none";
+}
+<button onclick='history.go(0)'>Spin</button>
+<div>@Model.Numbers[0]</div><div>@Model.Numbers[1]</div><div>@Model.Numbers[2]</div>
+<h2>Current Balance: @Model.Balance.ToString("C", culture)</h2>
+<span style="display:@display">
+    <h2>Congratulations @Model.FirstName,
+         <br/>You Win with a Lucky @Transform.numberToText(@Model.Luck)!</h2>
+    <img src="/Images/LuckySpinCoins.jpg" class="animated bounce" alt="Coins"/>
+</span>

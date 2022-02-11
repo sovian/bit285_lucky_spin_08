@@ -1,0 +1,4 @@
+﻿1-Player is the independent entity, Spin is the dependent entity, and Player has navigation property.
+2-All the spins are saved to the same list table regardless of playing from diferent browser instances.in the case of two players each one has their own list (local database)
+3-The spin table now has new PlayerId column referencing Player, and it's NULL currently code doesnt save to db yet.
+4-If one person plays more than once, they get different spin list. but play from different machines they would be different as well.
